@@ -50,12 +50,12 @@ function movimentaBolinha () {
 
 function colisaoBolinhaBorda () {
   if (xBolinha > width - raioBolinha ||
-     xBolinha < diametroBolinha / 2){
+     xBolinha < raioBolinha){
     velxBolinha *= -1
   }
     
   if (yBolinha > height - raioBolinha ||
-     yBolinha < diametroBolinha / 2){
+     yBolinha < raioBolinha){
     velyBolinha *= -1
   }
 }
