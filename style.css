@@ -1,12 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Russo+One&display=swap');
 html, body {
+  font-family: 'Poppins', sans-serif;
   background-color: #c1c1c1;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   margin: 0;
   padding: 0;
 }
 canvas {
   display: block;
+}
+
+h1 {
+  font-family: 'Russo One', sans-serif;
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #e4e4e4;
+  text-shadow:  12px 12px 24px #a4a4a4,
+  -12px -12px 24px #dedede;
+}
+
+
+
+footer {
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow:  12px 12px 24px #a1a1a1,
+  -12px -12px 24px #b9b9b9;
+}
+
+footer p {
+  font-weight: 300;
+}
+
+footer strong {
+  font-weight: 600;
 }
