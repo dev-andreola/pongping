@@ -18,6 +18,13 @@ let yRaquete = 155;
 let alturaRaquete = 90;
 let larguraRaquete = 10;
 
+// RAQUETE OPONENTE
+
+let xRaqueteOponente = 585;
+let yRaqueteOponente = 150;
+let velyOponente;
+
+
 //START
 
 function setup() {  
@@ -29,10 +36,12 @@ function draw() {
   mostraBolinha(); 
   movimentaBolinha();
   colisaoBolinhaBorda();
-  mostraRaquete();  
+  mostraRaquete(xRaquete, yRaquete);  
   movimentaMinhaRaquete();
   //colisaoBolinhaRaquete();
   colisaoBolinhaRaqueteBiblioteca();
+  mostraRaquete(xRaqueteOponente, yRaqueteOponente);
+  movimentaRaqueteOponente();
 }
 
 //BOLINHA
@@ -62,8 +71,8 @@ function colisaoBolinhaBorda () {
 
 //RAQUETE
 
-function mostraRaquete(){
-  rect(xRaquete, yRaquete, larguraRaquete, alturaRaquete)
+function mostraRaquete(x, y){
+  rect(x, y, larguraRaquete, alturaRaquete)
 }
 
 function movimentaMinhaRaquete(){
@@ -88,4 +97,11 @@ function colisaoBolinhaRaqueteBiblioteca(){
   if (colidiu) {
     velxBolinha *= -1;
   }
+}
+
+//RAQUETE OPONENTE
+
+function movimentaRaqueteOponente(){
+  velyOponente = yBolinha - yRaqueteOponente - larguraRaquete / 2 - 30;
+  yRaqueteOponente += velyOponente
 }
