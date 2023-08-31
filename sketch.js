@@ -6,7 +6,7 @@ let diametroBolinha = 22;
 let raioBolinha = diametroBolinha / 2;
 
 let velxBolinha = 6;
-let velyBolinha = 6;
+let velyBolinha = 2;
 
 //RAQUETE
 let colidiu = false;
@@ -17,7 +17,7 @@ let alturaRaquete = 90;
 let larguraRaquete = 10;
 
 // RAQUETE OPONENTE
-let xRaqueteOponente = 585;
+let xRaqueteOponente = 580;
 let yRaqueteOponente = 150;
 let velyOponente;
 
@@ -25,10 +25,23 @@ let velyOponente;
 meusPontos = 0;
 pontosOponente = 0;
 
+//SONS
+let ponto  ;
+let raquetada  ;
+let trilha  ;
+
+function preload(){
+  trilha = loadSound("pongping.mp3");
+  ponto = loadSound("ponto.mp3");
+  raquetada = loadSound("raquetada.mp3");
+}
+
 
 //START
 function setup() {  
   createCanvas(600, 400);
+  trilha.setVolume(0.2);
+  trilha.loop();
 }
 
 function draw() {    
@@ -93,7 +106,9 @@ function colisaoBolinhaRaquete(x, y){
   colidiu = collideRectCircle(x, y, larguraRaquete, alturaRaquete, xBolinha, yBolinha, diametroBolinha);
   if (colidiu) {
     velxBolinha *= -1;
+    raquetada.play();
   }
+
 }
 
 //RAQUETE OPONENTE
@@ -106,17 +121,26 @@ function movimentaRaqueteOponente(){
 
 //PONTUAÇÃO
 function incluiPlacar(){
+  //stroke(255);
+  textAlign(CENTER);
+  textSize(16);
+  fill(100);
+  rect(450, 10, 40, 20);  
+  rect(150, 10, 40, 20);
   fill(255);
-  text(meusPontos, 278, 26);
-  text(pontosOponente, 321, 26)
+  text(meusPontos, 170, 26);
+  fill(255);
+  text(pontosOponente, 470, 26)
 }
 
 
 function marcaPonto() {
   if (xBolinha > 590){
-    meusPontos++
+    meusPontos++;
+    ponto.play();
   }
   if (xBolinha < 10){
-    pontosOponente++
+    pontosOponente++;
+    ponto.play();
   }
 }
