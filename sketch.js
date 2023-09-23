@@ -5,8 +5,8 @@ let yBolinha = 200;
 let diametroBolinha = 22;
 let raioBolinha = diametroBolinha / 2;
 
-let velxBolinha = 12;
-let velyBolinha = 10;
+let velxBolinha = 5;
+let velyBolinha = 4;
 
 //RAQUETE
 let colidiu = false;
@@ -51,6 +51,7 @@ function draw() {
   colisaoBolinhaBorda();
   mostraRaquete(xRaquete, yRaquete);  
   movimentaMinhaRaquete(); // W e S
+  bolinhaNaoFicaPresa();
   colisaoBolinhaRaquete(xRaquete, yRaquete);
   mostraRaquete(xRaqueteOponente, yRaqueteOponente);
   movimentaRaqueteOponente(); // UPP ARROW e DOWN ARROW
@@ -100,7 +101,11 @@ function movimentaMinhaRaquete(){
   yRaquete = constrain(yRaquete, 4, 305)
 }
 
-
+function bolinhaNaoFicaPresa(){
+    if (xBolinha - raioBolinha < 0){
+    xBolinha = 23
+    }
+}
 
 function colisaoBolinhaRaquete(x, y){
   colidiu = collideRectCircle(x, y, larguraRaquete, alturaRaquete, xBolinha, yBolinha, diametroBolinha);
