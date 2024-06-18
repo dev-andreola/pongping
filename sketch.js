@@ -11,13 +11,13 @@ let velyBolinha = 5;
 //RAQUETE
 let colidiu = false;
 
-let xRaquete = 5;
+let xRaquete = 10;
 let yRaquete = 155;
 let alturaRaquete = 90;
 let larguraRaquete = 10;
 
 // RAQUETE OPONENTE
-let xRaqueteOponente = 595;
+let xRaqueteOponente = 580;
 let yRaqueteOponente = 150;
 let velyOponente;
 
